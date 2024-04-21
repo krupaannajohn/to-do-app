@@ -17,15 +17,6 @@ def addTodoView(request):
     new_item.save()
     return HttpResponseRedirect('/todo/')
 
-def editTodoView(request, id):
-    todo_item = get_object_or_404(TodoListItem, pk=id)
-
-    if request.method == 'POST':
-        todo_item.content = request.POST.get('content')
-        todo_item.save()
-        return HttpResponseRedirect('/todo/')
-    return render(request, 'edit_todo.html', {'todo_item': todo_item})
-
 def deleteTodoView(request, id):
     y = TodoListItem.objects.get(id= id)
     y.delete()
