@@ -1,0 +1,7 @@
+<!-- edit_todo.html -->
+<form method="post">
+    {% csrf_token %}
+    <label for="content">Content:</label><br>
+    <input type="text" id="content" name="content" value="{{ todo_item.content }}"><br>
+    <button type="submit">Save</button>
+</form>
